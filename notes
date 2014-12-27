@@ -1,0 +1,10 @@
+meteor create <project name>            - create a new project
+meteor                                  - to run the app
+meteor deploy newwebsite.meteor.com
+
+Persistent data
+    stored in Collections (js)
+    can be accessed from both server and client
+    js      - MyCollection = new Mongo.Collection("my collection")
+    MongoDB - creates a collection called "my collection", connects to the client side
+    
