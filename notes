@@ -7,4 +7,18 @@ Persistent data
     can be accessed from both server and client
     js      - MyCollection = new Mongo.Collection("my collection")
     MongoDB - creates a collection called "my collection", connects to the client side
-    
+
+Session
+    reactive data store for the client
+    Collection is recognized as reactive data source aka Meteor can detect when the data has changed
+    sessions aren't synced with the database
+    good for temporary storage
+    don't need extra code for template to update when session change
+ 
+ Latency compensation
+    when db methods are defined on the client AND server
+    Meteor.call does 2 things in parallel:
+        sends a request to the server to run the method in a secure env, like ajax call
+        a simulation of the method runs directly on the client to predict the outcome of the server call using available information
+
+    if the server returns something that is consistent with the simulation on the client, everything is peachy. If the result is different, the UI is patched to reflect the actual state of the server. 
